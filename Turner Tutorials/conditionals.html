@@ -1,0 +1,68 @@
+/*
+Anastasia Tomuz
+Web Development Pd 3-4 Even
+Mr. Irimina
+September 27, 2023
+*/
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function initialize()
+			{
+				numberOutput = document.getElementById("numberout");
+				negativeButton = document.getElementById("negativebtn");
+                
+                myNumber = 0;
+                negativesAllowed = false;
+
+				display();
+			}
+
+
+        function addOne(){
+            myNumber++;
+			display();
+        }
+
+        function subtractOne()
+        {
+            myNumber --;
+            if (myNumber < 0 && !negativesAllowed){
+                myNumber = 0;
+            }
+            display();
+        }
+
+        function toggleNegatives(){
+            if (negativesAllowed = true && myNumber < 0){
+                myNumber = 0;
+            }
+            negativesAllowed = !negativesAllowed;
+            display();
+        }
+
+        function display()
+        {
+            numberOutput.innerHTML = myNumber;
+
+            if (!negativesAllowed){
+                negativeButton.innerHTML = "Negatives are OFF";
+            } else {
+                negativeButton.innerHTML = "Negatives are ON";
+            }
+        }
+
+    </script>
+</head>
+<body onload = "initialize();">
+    <h1 id = "numberout"></h1>
+    <hr />
+    <button onclick = "addOne();">Add</button> 
+    <button onclick = "subtractOne();">Subtract</button>
+    <button onclick = "toggleNegatives()"; id = "negativebtn">Negatives are OFF</button>
+</body>
+</html>
